@@ -1,18 +1,17 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ThemeSwitcher.module.scss'
-import React from "react";
-import {Theme, useTheme} from "app/providers/ThemeProvider";
-import LightMode from "shared/assets/icons/theme-light.svg"
-import DarkMode from "shared/assets/icons/theme-dark.svg"
-import {Button, ThemeButton} from "shared/ui/Button/Button";
+import React from 'react'
+import { Theme, useTheme } from 'app/providers/ThemeProvider'
+import LightMode from 'shared/assets/icons/theme-light.svg'
+import DarkMode from 'shared/assets/icons/theme-dark.svg'
+import { Button, ThemeButton } from 'shared/ui/Button/Button'
 interface ThemeSwitcherProps {
-    className?: string
+  className?: string
 }
 
-
-export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
-const {theme, toggleTheme} = useTheme()
-    return (
+export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+  const { theme, toggleTheme } = useTheme()
+  return (
         <Button
             theme={ThemeButton.CLEAR}
             className={classNames(cls.ThemeSwitcher, {}, [className])}
@@ -20,5 +19,5 @@ const {theme, toggleTheme} = useTheme()
         >
             {theme === Theme.DARK ? <DarkMode /> : <LightMode />}
         </Button>
-    );
-};
+  )
+}
