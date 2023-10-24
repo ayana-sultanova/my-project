@@ -1,0 +1,19 @@
+:root {
+  --fonr-family-main: Consolas, 'Times New Roman', Serif;
+
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) /var(--font-line-m) var(--fonr-family-main);
+
+
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) /var(--font-line-l) var(--fonr-family-main);
+
+  //Размеры
+
+  --navbar-height: 50px;
+  --sideber-width: 300px;
+  --sideber-width-collapsed: 80px;
+
+}
