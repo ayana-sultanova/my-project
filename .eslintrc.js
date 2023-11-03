@@ -11,22 +11,22 @@ module.exports = {
   ],
   overrides: [
     {
-      env: {
-        node: true
-      },
-      files: [
-        '.eslintrc.{js,cjs}'
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended'
       ],
-      parserOptions: {
-        sourceType: 'script'
-      }
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint']
     }
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
-    tsconfigRootDir: __dirname
   },
   plugins: [
     'react',
@@ -34,12 +34,14 @@ module.exports = {
     'i18next'
   ],
   rules: {
+    'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx', '.tsx', '.ts'] }],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/naming-convention': 'off',
+    "@typescript-eslint/no-explicit-any": "off",
     'react/no-deprecated': 'off',
     'i18next/no-literal-string': [
       'error',
