@@ -12,6 +12,7 @@ export function componentRender (component: ReactNode, options: componentRenderP
   const {
     route = '/'
   } = options
+  console.log(route)
   return render(
         <MemoryRouter>
             <I18nextProvider i18n={i18nForTests}>
