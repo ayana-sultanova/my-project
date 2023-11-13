@@ -44,6 +44,7 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     "@typescript-eslint/no-explicit-any": "off",
     'react/no-deprecated': 'off',
+    "@typescript-eslint/no-var-requires": "off",
     'i18next/no-literal-string': [
       'error',
       {

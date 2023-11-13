@@ -1,6 +1,5 @@
 import type { Preview } from '@storybook/react'
-import { LightThemeDecorator } from '../../src/shared/lib/storybook/LightThemeDecorator'
-import { withRouterDecorator } from '../../src/shared/lib/storybook/withRouterDecorator'
+import { globalDecorator } from 'shared/lib/storybook/globalDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -13,8 +12,7 @@ const preview: Preview = {
     }
   },
   decorators: [
-    LightThemeDecorator,
-    withRouterDecorator
+    globalDecorator
   ]
 }
 
