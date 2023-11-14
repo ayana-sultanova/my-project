@@ -5,20 +5,31 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { useDispatch, useSelector } from 'react-redux'
 import { memo, useCallback } from 'react'
-import { loginActions } from '../../model/slice/loginSlice'
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
+import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
+import { getLoginIsloading } from '../../model/selectors/getLoginIsloading/getLoginIsloading'
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string
 }
 
+const initialReducers: ReducersList = {
+  loginForm: loginReducer
+}
+
 // eslint-disable-next-line react/display-name
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const { password, username, error, isLoading } = useSelector(getLoginState)
+  const password = useSelector(getLoginPassword)
+  const username = useSelector(getLoginUsername)
+  const isLoading = useSelector(getLoginIsloading)
+  const error = useSelector(getLoginError)
 
   const onChangeUserName = useCallback((value: string) => {
     dispatch(loginActions.setUserName(value))
@@ -33,6 +44,10 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch, password, username])
 
   return (
+      <DynamicModuleLoader
+          reducers={initialReducers}
+          removeAfterUnmount
+      >
         <div className={classNames(cls.LoginForm, {}, [className])}>
             <Text title={t('Форма авторизации')} />
             {error && <Text text={error} theme={TextTheme.ERROR} />}
@@ -60,5 +75,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 {t('Войти')}
             </Button>
         </div>
+      </DynamicModuleLoader>
   )
 })
+
+export default LoginForm
