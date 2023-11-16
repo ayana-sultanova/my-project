@@ -48,6 +48,7 @@ module.exports = {
     "@typescript-eslint/no-dynamic-delete": "off",
     "react/jsx-no-useless-fragment": [2, { allowExpressions: true }],
     // "allowExpressions": true,
+    "react/display-name": "off",
     'i18next/no-literal-string': [
       'error',
       {

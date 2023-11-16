@@ -11,7 +11,7 @@ interface LoginModalProps {
 
 }
 
-export const LoginModal = ({ className, ...props }: LoginModalProps) => {
+export const LoginModal = ({ className, onClose, ...props }: LoginModalProps) => {
   return (
         <Modal
             className={classNames('', {}, [className])}
@@ -19,7 +19,7 @@ export const LoginModal = ({ className, ...props }: LoginModalProps) => {
             {...props}
         >
             <Suspense fallback={<Loader/>}>
-                <LoginFormAsync/>
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
   )

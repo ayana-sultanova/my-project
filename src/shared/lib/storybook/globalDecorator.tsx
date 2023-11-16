@@ -5,9 +5,11 @@ import { type StateSchema, StoreProvider } from 'app/providers/StoryProvider'
 import { Theme, ThemeProvider } from 'app/providers/ThemeProvider'
 import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
+import { profileReducer } from 'enteties/Profile'
 
 const defaultAsyncReducer: DeepPartial<ReducersMapObject<StateSchema>> = {
-  loginForm: loginReducer
+  loginForm: loginReducer,
+  profile: profileReducer
 }
 
 export const globalDecorator: Decorator = (Story) => (

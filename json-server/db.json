@@ -12,5 +12,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "Ayana",
+    "lastName": "Sultanova",
+    "age": 23,
+    "currency": "SOM",
+    "country": "Kyrgyzstan",
+    "city": "Bishkek",
+    "username": "admin",
+    "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fgirl_5986315&psig=AOvVaw0BVjM9_J_S6N2-k4T38z96&ust=1700217323232000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKjKoKCpyIIDFQAAAAAdAAAAABAJ"
+  }
 }

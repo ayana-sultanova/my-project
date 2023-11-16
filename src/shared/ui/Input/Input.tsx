@@ -12,7 +12,6 @@ interface InputProps extends HtmlInputProps {
   autoFocus?: boolean
 }
 
-// eslint-disable-next-line react/display-name
 export const Input = memo((props: InputProps) => {
   const {
     className,
