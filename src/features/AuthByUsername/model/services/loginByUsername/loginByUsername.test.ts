@@ -19,7 +19,6 @@ describe('loginByUserName', () => {
   //   mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }))
   //   const action = loginByUsername({ username: '123', password: '123' })
   //   const result = await action(dispatch, getState, undefined)
-  //   console.log(result)
   //   expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue))
   //   expect(dispatch).toHaveBeenCalledTimes(3)
   //   expect(mockedAxios.post).toHaveBeenCalled()
