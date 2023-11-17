@@ -1,13 +1,13 @@
 import React from 'react'
 import { type Decorator } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
-import { type StateSchema, StoreProvider } from 'app/providers/StoryProvider'
+import { StoreProvider } from 'app/providers/StoryProvider'
 import { Theme, ThemeProvider } from 'app/providers/ThemeProvider'
-import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { profileReducer } from 'enteties/Profile'
+import { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
-const defaultAsyncReducer: DeepPartial<ReducersMapObject<StateSchema>> = {
+const defaultAsyncReducer: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer
 }
@@ -15,7 +15,7 @@ const defaultAsyncReducer: DeepPartial<ReducersMapObject<StateSchema>> = {
 export const globalDecorator: Decorator = (Story) => (
     <body className={Theme.LIGHT}>
     <StoreProvider
-        initialState={{ loginForm: { username: '12gfyr', password: 'vvvgr' } }}
+        initialState={{ loginForm: { username: '12gfyr', password: 'vvvgr', isLoading: false } }}
         asyncReducer={defaultAsyncReducer}
     >
         <ThemeProvider initialTheme={Theme.LIGHT}>

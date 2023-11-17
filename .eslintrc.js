@@ -49,6 +49,7 @@ module.exports = {
     "react/jsx-no-useless-fragment": [2, { allowExpressions: true }],
     // "allowExpressions": true,
     "react/display-name": "off",
+    "@typescript-eslint/no-invalid-void-type": "off",
     'i18next/no-literal-string': [
       'error',
       {
@@ -60,6 +61,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: true
   }
 }
