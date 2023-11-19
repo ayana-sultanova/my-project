@@ -8,11 +8,12 @@ import { getUserAuthData } from 'enteties/User'
 const AppRouter = () => {
   const isAuth = useSelector(getUserAuthData)
   const routes = useMemo(() => Object.values(routeConfig).filter(route => {
-    if (route.authOnly && isAuth) {
+    if (route.authOnly && !isAuth) {
       return false
     }
     return true
   }), [isAuth])
+  console.log(routes)
   return (
         <Suspense fallback={<PageLoader />}>
             <Routes>
