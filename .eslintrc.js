@@ -50,6 +50,7 @@ module.exports = {
     // "allowExpressions": true,
     "react/display-name": "off",
     "@typescript-eslint/no-invalid-void-type": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     'i18next/no-literal-string': [
       'error',
       {

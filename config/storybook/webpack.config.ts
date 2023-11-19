@@ -12,23 +12,23 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src')
   }
 
-  config.resolve.modules.push(paths.src)
-  config.resolve.extensions.push('.ts', '.tsx')
-  config.module.rules.push(buildCssLoader(true))
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-  config.module.rules = config.module.rules.map((rule: any) => {
+  config.resolve!.modules!.push(paths.src)
+  config.resolve!.extensions!.push('.ts', '.tsx')
+  config.module!.rules!.push(buildCssLoader(true))
+  // eslint-disable-next-line
+  config.module!.rules = config.module!.rules!.map((rule: any) => {
     if (/svg/.test(rule.test)) {
       return { ...rule, exclude: /\.svg$/i }
     }
 
     return rule
   })
-  config.module.rules.push({
+  config.module!.rules.push({
     test: /\.svg$/,
     use: ['@svgr/webpack']
   })
 
-  config.plugins.push(new DefinePlugin({
+  config.plugins!.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
     __API__: JSON.stringify('')
   }))

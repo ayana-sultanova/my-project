@@ -14,15 +14,15 @@ const defaultAsyncReducer: ReducersList = {
 
 export const globalDecorator: Decorator = (Story) => (
     <body className={Theme.LIGHT}>
-    <StoreProvider
-        initialState={{ loginForm: { username: '12gfyr', password: 'vvvgr', isLoading: false } }}
-        asyncReducer={defaultAsyncReducer}
-    >
-        <ThemeProvider initialTheme={Theme.LIGHT}>
-            <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider
+            initialState={{ loginForm: { username: '12gfyr', password: 'vvvgr', isLoading: false } }}
+            asyncReducer={defaultAsyncReducer}
+        >
+            <ThemeProvider initialTheme={Theme.LIGHT}>
                 <Story/>
-            </BrowserRouter>
-        </ThemeProvider>
-    </StoreProvider>
+            </ThemeProvider>
+        </StoreProvider>
+    </BrowserRouter>
     </body>
 )

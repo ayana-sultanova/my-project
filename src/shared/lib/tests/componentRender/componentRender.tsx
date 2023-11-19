@@ -16,12 +16,12 @@ export function componentRender (component: ReactNode, options: componentRenderP
     initialState
   } = options
   return render(
-      <StoreProvider initialState={initialState}>
         <MemoryRouter initialEntries={[route]}>
-            <I18nextProvider i18n={i18nForTests}>
-                {component}
-            </I18nextProvider>
+            <StoreProvider initialState={initialState}>
+                <I18nextProvider i18n={i18nForTests}>
+                    {component}
+                </I18nextProvider>
+            </StoreProvider>
         </MemoryRouter>
-      </StoreProvider>
   )
 }

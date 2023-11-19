@@ -1,9 +1,17 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "typicode" }
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "some comment", "postId": "1" }
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
   ],
   "users": [
     {
@@ -16,10 +24,10 @@
     "name": "Ayana",
     "lastName": "Sultanova",
     "age": 23,
-    "currency": "SOM",
+    "currency": "USD",
     "country": "Kyrgyzstan",
-    "city": "Bishkek",
+    "city": "Bishkek city",
     "username": "admin",
-    "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fgirl_5986315&psig=AOvVaw0BVjM9_J_S6N2-k4T38z96&ust=1700217323232000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKjKoKCpyIIDFQAAAAAdAAAAABAJ"
+    "avatar": "https://static.vecteezy.com/system/resources/previews/023/338/699/original/ai-generative-sute-girl-hacker-with-laptop-avatar-in-cartoon-style-free-png.png"
   }
 }
