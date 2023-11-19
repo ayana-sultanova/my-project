@@ -53,6 +53,6 @@ describe('loginByUserName', () => {
     expect(thunk.dispatch).toHaveBeenCalledTimes(2)
     expect(thunk.api.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')
-    expect(result.payload).toBe('Вы ввели неправльный логин или пароль')
+    expect(result.payload).toBe('Вы ввели неправильный логин или пароль')
   })
 })

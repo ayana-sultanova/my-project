@@ -13,7 +13,6 @@ const AppRouter = () => {
     }
     return true
   }), [isAuth])
-  console.log(routes)
   return (
         <Suspense fallback={<PageLoader />}>
             <Routes>
