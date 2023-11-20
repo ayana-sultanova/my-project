@@ -1,4 +1,4 @@
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername'
+import { loginByUsername } from './loginByUsername'
 import { userActions } from 'enteties/User'
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk'
 
