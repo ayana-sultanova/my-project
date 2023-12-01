@@ -7,12 +7,14 @@ import { type ProfileSchema } from 'enteties/Profile'
 import { type AxiosInstance } from 'axios'
 import { type To } from 'history'
 import { type NavigateOptions } from 'react-router'
+import { type ArticleDetailsSchema } from '../../../../enteties/Article/model/types/ArticleDetailsSchema'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
 
   // Асинхронные редюсеры
+  articleDetails?: ArticleDetailsSchema
   loginForm?: LoginSchema
   profile?: ProfileSchema
 }

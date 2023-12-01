@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/providers/StoryProvider'
-import { type Profile } from '../../types/ProfileSchema'
+import { type Article } from '../../types/ArticleSchema'
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string> >(
-  'profile/fetchProfileData',
-  async (_, thunkAPI) => {
+export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string> >(
+  'articleDetails/fetchArticleById',
+  async (articleId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI
     try {
-      const response = await extra.api.get<Profile>('/profile')
+      const response = await extra.api.get<Article>(`/articles/${articleId}`)
 
       if (!response.data) {
         throw new Error()
@@ -15,7 +15,7 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
       return response.data
     } catch (e) {
       console.log(e)
-      return rejectWithValue('Вы ввели неправильный логин или пароль')
+      return rejectWithValue('Error')
     }
   }
 )

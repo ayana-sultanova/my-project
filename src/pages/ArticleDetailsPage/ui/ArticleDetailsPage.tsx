@@ -3,6 +3,7 @@ import cls from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { ArticleDetails } from 'enteties/Article'
+import { useParams } from 'react-router-dom'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -10,10 +11,17 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles')
-
+  const { id } = useParams()
+  if (!id) {
+    return (
+            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                {t('Статья не найдена')}
+            </div>
+    )
+  }
   return (
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <ArticleDetails />
+            <ArticleDetails id={id} />
         </div>
   )
 }

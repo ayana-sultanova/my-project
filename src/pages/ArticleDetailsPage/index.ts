@@ -1,5 +1,5 @@
-import { ArticleDetailsPageAsync as ArticlesDetailPage } from './ui/ArticleDetailsPage.async'
+import { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetailsPage.async'
 
 export {
-  ArticlesDetailPage
+  ArticleDetailsPage
 }
