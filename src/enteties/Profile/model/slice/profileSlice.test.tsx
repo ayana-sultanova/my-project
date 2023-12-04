@@ -7,6 +7,7 @@ import {
 import { Country } from 'enteties/Country'
 import { Currency } from 'enteties/Currency'
 const data = {
+  id: '1',
   username: 'admin',
   name: 'Ayana',
   lastName: 'Sultanoa',
@@ -49,7 +50,7 @@ describe('profile', () => {
     }
     expect(profileReducer(
       state as ProfileSchema,
-      updateProfileData.fulfilled(data, '')
+      updateProfileData.fulfilled(data, '1', '')
     )).toEqual({
       isLoading: false,
       validateError: undefined,

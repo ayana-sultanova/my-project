@@ -4,10 +4,10 @@ export const validateProfileData = (profile?: Profile) => {
   if (!profile) {
     return [ValidateProfileError.NO_DATA]
   }
-  const { name, lastName, age, username } = profile
+  const { first, lastname, age, username } = profile
 
   const errors: ValidateProfileError[] = []
-  if (!name && !lastName) {
+  if (!first && !lastname) {
     errors.push(ValidateProfileError.INCORRECT_USER_DATA)
   }
 

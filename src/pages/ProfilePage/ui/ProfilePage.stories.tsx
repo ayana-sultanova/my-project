@@ -25,8 +25,8 @@ export const Light: Story = {
         profile: {
           form: {
             username: 'admin',
-            name: 'Ayana',
-            lastName: 'Sultanoa',
+            first: 'Ayana',
+            lastname: 'Sultanova',
             avatar: Avatar,
             age: 23,
             country: Country.Kyrgyzstan,
@@ -47,8 +47,8 @@ export const Dark: Story = {
         profile: {
           form: {
             username: 'admin',
-            name: 'Ayana',
-            lastName: 'Sultanoa',
+            first: 'Ayana',
+            lastname: 'Sultanoa',
             avatar: Avatar,
             age: 23,
             country: Country.Kyrgyzstan,

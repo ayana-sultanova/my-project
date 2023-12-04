@@ -20,8 +20,8 @@ export const Primary: Story = {
   args: {
     data: {
       username: 'admin',
-      name: 'Ayana',
-      lastName: 'Sultanoa',
+      first: 'Ayana',
+      lastname: 'Sultanoa',
       avatar: Avatar,
       age: 23,
       country: Country.Kyrgyzstan,

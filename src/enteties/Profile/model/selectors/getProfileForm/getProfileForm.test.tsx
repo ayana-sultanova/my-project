@@ -7,13 +7,13 @@ describe('getProfileForm', () => {
       profile: {
         form: {
           username: 'admin',
-          name: 'Ayana'
+          first: 'Ayana'
         }
       }
     }
     expect(getProfileForm(state as StateSchema)).toEqual({
       username: 'admin',
-      name: 'Ayana'
+      first: 'Ayana'
     })
   })
   test('should work with empty state', () => {

@@ -6,10 +6,15 @@ import { Theme, ThemeProvider } from 'app/providers/ThemeProvider'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { profileReducer } from 'enteties/Profile'
 import { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { articleDetailsReducer } from 'enteties/Article/model/slice/articleDetailsSlice'
+import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice'
 
 const defaultAsyncReducer: ReducersList = {
   loginForm: loginReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  articleDetails: articleDetailsReducer,
+  addCommentForm: addCommentFormReducer,
+  articleDetailsComments: articleDetailsReducer
 }
 
 export const globalDecorator: Decorator = (Story) => (

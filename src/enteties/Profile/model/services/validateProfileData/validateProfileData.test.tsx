@@ -5,8 +5,8 @@ import { ValidateProfileError } from 'enteties/Profile'
 
 const data = {
   username: 'admin',
-  name: 'Ayana',
-  lastName: 'Sultanoa',
+  first: 'Ayana',
+  lastname: 'Sultanoa',
   age: 23,
   country: Country.Kyrgyzstan,
   city: 'QQQ',
@@ -19,7 +19,7 @@ describe('validateProfileData', () => {
     expect(result).toEqual([])
   })
   test('without name and lastName', () => {
-    const result = validateProfileData({ ...data, name: '', lastName: '' })
+    const result = validateProfileData({ ...data, first: '', lastname: '' })
 
     expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA])
   })
