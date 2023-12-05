@@ -19,6 +19,9 @@ import { type ArticleBlock, ArticleBlockType } from '../../model/types/ArticleSc
 import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
+import EyeIcon from 'shared/assets/icons/eye.svg'
+import CalendarIcon from 'shared/assets/icons/calendar.svg'
+import { Icon } from 'shared/ui/Icon/Icon'
 
 interface ArticleDetailsProps {
   className?: string
@@ -88,11 +91,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                     size={TextSize.L}
                 />
                 <div className={cls.articleInfo}>
-                    {/* icon should be here */}
+                    <Icon Svg={EyeIcon} />
                     <Text text={data?.createdAt}/>
                 </div>
                 <div className={cls.articleInfo}>
-                    {/* icon should be here */}
+                    <Icon Svg={CalendarIcon} />
                     <Text text={data?.createdAt}/>
                 </div>
                 {data?.blocks.map(renderBlock)}

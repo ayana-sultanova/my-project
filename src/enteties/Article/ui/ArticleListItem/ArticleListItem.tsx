@@ -10,6 +10,8 @@ import { Button } from 'shared/ui/Button/Button'
 import { ArticleTextBlockComponent } from 'enteties/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { useNavigate } from 'react-router'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import EyeIcon from 'shared/assets/icons/eye.svg'
+import { Icon } from 'shared/ui/Icon/Icon'
 
 interface ArticleListItemProps {
   className?: string
@@ -63,7 +65,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <div className={cls.infoWrapper}>
                     <Text text={article.type.join(', ')} className={cls.types}/>
                     {views}
-                    {/* <Icon Svg-EyeIcon) /> */}
+                     <Icon Svg={EyeIcon} />
                 </div>
                 <Text title={article.title} className={cls.title}/>
             </Card>
