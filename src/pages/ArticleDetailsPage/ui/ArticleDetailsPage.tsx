@@ -19,6 +19,9 @@ import {
 } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { AddCommentForm } from 'features/addCommentForm'
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
+import { Button } from 'shared/ui/Button/Button'
+import { useNavigate } from 'react-router'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -35,6 +38,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const isLoading = useSelector(getArticleCommentsIsLoading)
   // const error = useSelector(getArticleCommentsError)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles)
+  }, [navigate])
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
@@ -54,6 +61,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                <Button onClick={onBackToList}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id}/>
                 <Text className={cls.commentTitle} title={t('Комментарии')}/>
                 <AddCommentForm onSendComment={onSendComment} />
