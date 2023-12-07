@@ -40,7 +40,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                     onClick={onClick(viewType.view)}
                 >
                     <Icon
-                        className={classNames('', { [cls.selected]: viewType.view === view })}
+                        className={classNames(cls.icon, { [cls.selected]: viewType.view === view })}
                         Svg={viewType.icon}
                     />
                 </Button>

@@ -22,15 +22,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
   } = props
   // const { t } = useTranslation()
 
-  if (isLoading) {
-    return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {new Array(view === ArticleView.BIG ? 3 : 9)
-                  .fill(0)
-                  .map((article, index) => <ArticleListItemSkeleton key={index} view={view}/>)}
-            </div>
-    )
-  }
   const rednderArticles = (article: Article) => (
         <ArticleListItem
             className={cls.card}
@@ -47,6 +38,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
                   articles.map(rednderArticles)
                 )
               : null}
+          {isLoading && <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            {new Array(view === ArticleView.BIG ? 3 : 9)
+              .fill(0)
+              .map((article, index) => <ArticleListItemSkeleton key={index} view={view}/>)}
+          </div>}
         </div>
   )
 })
