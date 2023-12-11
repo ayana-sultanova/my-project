@@ -13,17 +13,16 @@ void,
 void,
 ThunkConfig<string>
 >(
-  'articleDetails/fetchCommentsByArticleId',
-  async (_, thunkAPI) => {
-    const { getState, dispatch } = thunkAPI
+  'articlesPage/fetchNextArticlesPage',
+  async (_, thunkApi) => {
+    const { getState, dispatch } = thunkApi
+    const hasMore = getArticlesPageHasMore(getState())
     const page = getArticlesPageNum(getState())
     const isLoading = getArticlesPageIsLoading(getState())
-    const hasMore = getArticlesPageHasMore(getState())
+
     if (hasMore && !isLoading) {
       dispatch(articlesPageAction.setPage(page + 1))
-      dispatch(fetchArticlesList({
-        page: page + 1
-      }))
+      dispatch(fetchArticlesList({}))
     }
   }
 )

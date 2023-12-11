@@ -42,7 +42,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/naming-convention': 'off',
-    "@typescript-eslint/no-explicit-any": "off",
+    '@typescript-eslint/no-explicit-any': 0,
     'react/no-deprecated': 'off',
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-dynamic-delete": "off",

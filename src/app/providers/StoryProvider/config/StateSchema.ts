@@ -11,10 +11,12 @@ import { type ArticleDetailsSchema } from '../../../../enteties/Article/model/ty
 import { type ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type ArticlesPageSchema } from 'pages/ArticlesPage'
+import { type UISchema } from 'features/scrollSave'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  ui: UISchema
 
   // Асинхронные редюсеры
   articleDetails?: ArticleDetailsSchema

@@ -22,7 +22,7 @@ import { addCommentForArticle } from '../model/services/addCommentForArticle/add
 import { Button } from 'shared/ui/Button/Button'
 import { useNavigate } from 'react-router'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/Page'
 
 interface ArticleDetailsPageProps {
   className?: string
