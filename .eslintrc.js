@@ -46,6 +46,7 @@ module.exports = {
     'react/no-deprecated': 'off',
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
     "react/jsx-no-useless-fragment": [2, { allowExpressions: true }],
     // "allowExpressions": true,
     "react/display-name": "off",
@@ -55,7 +56,7 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to']
+        ignoreAttribute: ['data-testid', 'to', 'target']
       }
     ],
     'react-hooks/rules-of-hooks': 'error',

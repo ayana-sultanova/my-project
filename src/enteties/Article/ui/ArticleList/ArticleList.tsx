@@ -1,16 +1,18 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleList.module.scss'
-// import { useTranslation } from 'react-i18next'
-import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { type HTMLAttributeAnchorTarget, memo } from 'react'
 import { type Article, ArticleView } from '../../model/types/ArticleSchema'
 import { ArticleListItem } from 'enteties/Article/ui/ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from 'enteties/Article/ui/ArticleListItem/ArticleListItemSkeleton'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 
 interface ArticleListProps {
   className?: string
   articles?: Article[]
   isLoading?: boolean
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -18,12 +20,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
     className,
     view = ArticleView.SMALL,
     articles,
-    isLoading = true
+    isLoading,
+    target
   } = props
-  // const { t } = useTranslation()
+  const { t } = useTranslation()
 
-  const rednderArticles = (article: Article) => (
+  const renderArticles = (article: Article) => (
         <ArticleListItem
+            target={target}
             className={cls.card}
             article={article}
             view={view}
@@ -31,11 +35,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
         />
   )
 
+  if (!isLoading && !articles?.length) {
+    return <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      <Text size={TextSize.L} text={t('Статьи не найдены')} />
+    </div>
+  }
   return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles?.length
               ? (
-                  articles.map(rednderArticles)
+                  articles.map(renderArticles)
                 )
               : null}
           {isLoading && <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

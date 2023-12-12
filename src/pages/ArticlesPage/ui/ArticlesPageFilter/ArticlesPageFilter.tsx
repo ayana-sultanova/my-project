@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import {
-  getArticlesPageOrder, getArticlesPageSearch,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
   getArticlesPageSort,
+  getArticlesPageType,
   getArticlesPageView
 } from '../../model/selectors/articlePageSelectors'
-import { type ArticleSortField, type ArticleView, ArticleViewSelector } from 'enteties/Article'
+import { type ArticleSortField, type ArticleView, ArticleViewSelector, type ArticleType, ArticleTypeTabs } from 'enteties/Article'
 import { articlesPageAction } from '../../model/slices/articlesPageSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Input } from 'shared/ui/Input/Input'
@@ -30,6 +32,7 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
   const sort = useSelector(getArticlesPageSort)
   const order = useSelector(getArticlesPageOrder)
   const search = useSelector(getArticlesPageSearch)
+  const type = useSelector(getArticlesPageType)
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }))
@@ -59,6 +62,12 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
     debouncedFetchData()
   }, [dispatch, debouncedFetchData])
 
+  const onChangeType = useCallback((type: ArticleType) => {
+    dispatch(articlesPageAction.setType(type))
+    dispatch(articlesPageAction.setPage(1))
+    fetchData()
+  }, [dispatch, fetchData])
+
   return (
         <div className={classNames(cls.ArticlesPageFilter, {}, [className])}>
             <div className={cls.sortWrapper}>
@@ -76,6 +85,11 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
                     placeholder={t('Поиск')}
                 />
             </Card>
+            <ArticleTypeTabs
+                value={type}
+                onChangeType={onChangeType}
+                className={cls.tabs}
+                />
         </div>
   )
 })

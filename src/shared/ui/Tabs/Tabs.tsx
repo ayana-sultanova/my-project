@@ -1,10 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './Tabs.module.scss'
-// import { useTranslation } from 'react-i18next'
-import React, { memo, type ReactNode } from 'react'
+import { memo, type ReactNode, useCallback } from 'react'
 import { Card, CardTheme } from 'shared/ui/Card/Card'
+import cls from './Tabs.module.scss'
 
-interface TabItem {
+export interface TabItem {
   value: string
   content: ReactNode
 }
@@ -17,22 +16,26 @@ interface TabsProps {
 }
 
 export const Tabs = memo((props: TabsProps) => {
-  const { className, tabs, value } = props
-  // const { t } = useTranslation()
+  const {
+    className, tabs, onTabClick, value
+  } = props
+
+  const clickHandle = useCallback((tab: TabItem) => () => {
+    onTabClick(tab)
+  }, [onTabClick])
 
   return (
-        <div className={classNames(cls.Tabs, {}, [className])}>
-            {
-                tabs.map(tab => (
-                    <Card
-                        theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
-                        key={tab.value}
-                        className={cls.card}
-                    >
-                        {tab.content}
-                    </Card>
-                ))
-            }
-        </div>
+      <div className={classNames(cls.Tabs, {}, [className])}>
+        {tabs.map((tab) => (
+            <Card
+                theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                className={cls.tab}
+                key={tab.value}
+                onClick={clickHandle(tab)}
+            >
+              {tab.content}
+            </Card>
+        ))}
+      </div>
   )
 })

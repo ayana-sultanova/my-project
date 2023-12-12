@@ -11,7 +11,7 @@
       "userId": "2"
     }
   ],
-  "articles":[
+  "articles": [
     {
       "id": "1",
       "title": "Javascript news СВЕЖАЯ",
@@ -595,6 +595,12 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "text": "frefefef",
+      "id": "b1FjSYY"
     }
   ],
   "users": [
@@ -616,9 +622,9 @@
   "profile": [
     {
       "id": "1",
-      "first": "jghwer",
-      "lastname": "asfewr",
-      "age": 465,
+      "first": "Ayana",
+      "lastname": "Sultanova",
+      "age": 23,
       "currency": "RUB",
       "country": "Belarus",
       "city": "Minsk",

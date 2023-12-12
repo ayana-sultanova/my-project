@@ -40,6 +40,7 @@ export enum ArticleView {
 }
 export enum ArticleType {
   IT = 'IT',
+  ALL = 'ALL',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS'
 }

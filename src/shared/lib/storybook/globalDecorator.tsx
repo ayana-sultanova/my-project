@@ -8,13 +8,14 @@ import { profileReducer } from 'enteties/Profile'
 import { type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articleDetailsReducer } from 'enteties/Article/model/slice/articleDetailsSlice'
 import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice'
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices'
 
 const defaultAsyncReducer: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsComments: articleDetailsReducer
+  articleDetailsPage: articleDetailsPageReducer
 }
 
 export const globalDecorator: Decorator = (Story) => (
