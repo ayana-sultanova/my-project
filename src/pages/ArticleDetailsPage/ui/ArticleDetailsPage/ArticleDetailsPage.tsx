@@ -7,24 +7,22 @@ import { Text, TextSize } from 'shared/ui/Text/Text'
 import { CommentList } from 'enteties/Comment'
 import cls from './ArticleDetails.module.scss'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice'
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { getArticleCommentsIsLoading } from '../model/selectors/comments'
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { AddCommentForm } from 'features/addCommentForm'
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
-import { Button } from 'shared/ui/Button/Button'
-import { useNavigate } from 'react-router'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { Page } from 'widgets/Page/Page'
-import { getArticleRecommendations } from '../model/slices/articleDetailsPageRecommendationSlice'
+import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationSlice'
 import { getArticleRecommendationsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendations'
 import { ArticleList } from 'enteties/Article/ui/ArticleList/ArticleList'
 import {
   fetchArticleRecommendations
-} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
-import { articleDetailsPageReducer } from '../model/slices'
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
+import { articleDetailsPageReducer } from '../../model/slices'
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -43,10 +41,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading)
   // const error = useSelector(getArticleCommentsError)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
-  }, [navigate])
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
@@ -67,9 +61,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <Button onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id}/>
                 <Text
                     size={TextSize.L}

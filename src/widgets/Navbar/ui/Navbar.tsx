@@ -2,10 +2,13 @@ import React, { memo, useCallback, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
 import { getUserAuthData, userActions } from 'enteties/User'
 import { useDispatch, useSelector } from 'react-redux'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface NavbarProps {
   className?: string
@@ -31,7 +34,19 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text
+                    className={cls.appName}
+                    title={t('News')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    className={cls.createBtn}
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     className={cls.links}
                     theme={ButtonTheme.CLEAR_INVERTED}
@@ -39,12 +54,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Выйти')}
                 </Button>
-            </div>
+            </header>
     )
   }
 
   return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <Button
                 className={cls.links}
                 theme={ButtonTheme.CLEAR_INVERTED}
@@ -56,6 +71,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 isOpen={isAuthModal}
                 onClose={onCloseModal}
             />}
-        </div>
+        </header>
   )
 })
