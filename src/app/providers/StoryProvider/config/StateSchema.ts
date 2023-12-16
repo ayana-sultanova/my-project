@@ -1,9 +1,9 @@
-import { type CounterSchema } from 'enteties/Counter'
-import { type UserSchema } from 'enteties/User'
+import { type CounterSchema } from 'entities/Counter'
+import { type UserSchema } from 'entities/User'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type CombinedState, type EnhancedStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type AnyAction } from 'redux'
-import { type ProfileSchema } from 'enteties/Profile'
+import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
 import { type To } from 'history'
 import { type NavigateOptions } from 'react-router'
@@ -11,7 +11,7 @@ import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
 import { type AddCommentFormSchema } from 'features/addCommentForm'
 import { type ArticlesPageSchema } from 'pages/ArticlesPage'
 import { type UISchema } from 'features/scrollSave'
-import { type ArticleDetailsSchema } from 'enteties/Article'
+import { type ArticleDetailsSchema } from 'entities/Article'
 
 export interface StateSchema {
   counter: CounterSchema

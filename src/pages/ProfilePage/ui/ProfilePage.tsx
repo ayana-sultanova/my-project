@@ -10,14 +10,14 @@ import {
   ProfileCard,
   profileReducer,
   ValidateProfileError
-} from 'enteties/Profile'
+} from 'entities/Profile'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useSelector } from 'react-redux'
-import { getProfileReadonly } from 'enteties/Profile/model/selectors/getProfileReadonly/getProfileReadonly'
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader'
-import { getProfileForm } from 'enteties/Profile/model/selectors/getProfileForm/getProfileForm'
-import { type Currency } from '../../../enteties/Currency'
-import { type Country } from 'enteties/Country'
+import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly'
+import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader'
+import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm'
+import { type Currency } from 'entities/Currency'
+import { type Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'

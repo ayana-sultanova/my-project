@@ -32,7 +32,8 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'i18next',
-    'react-hooks'
+    'react-hooks',
+    'my-project-plugin'
   ],
   rules: {
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx', '.tsx', '.ts'] }],
@@ -61,6 +62,7 @@ module.exports = {
     ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'my-project-plugin/path-checker': 'error'
   },
   globals: {
     __IS_DEV__: true,

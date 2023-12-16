@@ -2,7 +2,7 @@ import {
   createEntityAdapter,
   createSlice, type PayloadAction
 } from '@reduxjs/toolkit'
-import { type Comment } from 'enteties/Comment'
+import { type Comment } from 'entities/Comment'
 import { type StateSchema } from 'app/providers/StoryProvider'
 import { type ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema'
 import {

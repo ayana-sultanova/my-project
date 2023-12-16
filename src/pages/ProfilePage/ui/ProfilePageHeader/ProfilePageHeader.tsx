@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next'
 import { Text } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { useSelector } from 'react-redux'
-import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'enteties/Profile'
+import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useCallback } from 'react'
-import { getUserAuthData } from 'enteties/User'
+import { getUserAuthData } from 'entities/User'
 
 interface ProfilePageHeaderProps {
   className?: string

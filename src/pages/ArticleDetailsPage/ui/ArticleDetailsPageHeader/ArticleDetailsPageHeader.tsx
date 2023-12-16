@@ -6,8 +6,8 @@ import { Button } from 'shared/ui/Button/Button'
 import { useNavigate } from 'react-router'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
-import { getArticleDetailsData } from 'enteties/Article'
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article'
+import { getArticleDetailsData } from 'entities/Article'
+import { getCanEditArticle } from '../../model/selectors/article'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string

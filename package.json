@@ -64,6 +64,7 @@
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-my-project-plugin": "^0.0.4",
     "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
@@ -102,7 +103,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "react-window": "^1.8.10"
   },
   "loki": {
     "configurations": {

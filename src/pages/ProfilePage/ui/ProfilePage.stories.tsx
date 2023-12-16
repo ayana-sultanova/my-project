@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ProfilePage from './ProfilePage'
 import { DarkThemeDecorator } from 'shared/lib/storybook/DarkThemeDecorator'
 import { StoreProvider } from '../../../app/providers/StoryProvider'
-import { Country } from '../../../enteties/Country'
-import { Currency } from '../../../enteties/Currency'
+import { Country } from '../../../entities/Country'
+import { Currency } from '../../../entities/Currency'
 import Avatar from 'shared/assets/tests/storybook.jpg'
 
 const meta = {

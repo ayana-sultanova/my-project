@@ -10,14 +10,14 @@ import {
   getArticlesPageType,
   getArticlesPageView
 } from '../../model/selectors/articlePageSelectors'
-import { type ArticleSortField, type ArticleView, ArticleViewSelector, type ArticleType, ArticleTypeTabs } from 'enteties/Article'
+import { type ArticleSortField, type ArticleView, ArticleViewSelector, type ArticleType, ArticleTypeTabs } from 'entities/Article'
 import { articlesPageAction } from '../../model/slices/articlesPageSlice'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Input } from 'shared/ui/Input/Input'
 import { Card } from 'shared/ui/Card/Card'
 import { type SortOrder } from 'shared/types'
-import { ArticleSortSelector } from 'enteties/Article/ui/ArticleSortSelector/ArticleSortSelector'
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList'
+import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector'
+import { fetchArticlesList } from '../../model/services/fetchArticlesList'
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
 
 interface ArticlesPageFilterProps {
