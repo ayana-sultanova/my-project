@@ -14,6 +14,7 @@ export enum TextAlign {
   CENTER = 'center'
 }
 export enum TextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
 }
@@ -27,6 +28,14 @@ interface TextProps {
   size?: string
 }
 
+type HeaderTagType = 'h1' | 'h2' | 'h3'
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1'
+}
+
 export const Text = memo((props: TextProps) => {
   const {
     className,
@@ -36,6 +45,11 @@ export const Text = memo((props: TextProps) => {
     align = TextAlign.LEFT,
     size = TextSize.M
   } = props
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const HeaderTag = mapSizeToHeaderTag[size]
+
   const adds = [
     className,
     cls[theme],
@@ -44,7 +58,7 @@ export const Text = memo((props: TextProps) => {
   ]
   return (
         <div className={classNames(cls.Text, {}, adds)}>
-            {title && <p className={cls.title}>{title}</p> }
+            {title && <HeaderTag className={cls.title}>{title}</HeaderTag> }
             {text && <p className={cls.text}>{text}</p> }
         </div>
   )

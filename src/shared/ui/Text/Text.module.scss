@@ -1,10 +1,38 @@
+.size_s {
+  .title {
+    font: var(--font-m);
+  }
+
+  .text {
+    font: var(--font-s);
+  }
+}
+
+.size_m {
+  .title {
+    font: var(--font-l);
+  }
+
+  .text {
+    font: var(--font-m);
+  }
+}
+
+.size_l {
+  .title {
+    font: var(--font-xl);
+  }
+
+  .text {
+    font: var(--font-l);
+  }
+}
+
 .title {
-  font: var(--font-l);
   color: var(--primary-color);
 }
 
 .text {
-  font: var(--font-m);
   color: var(--secondary-color);
 }
 

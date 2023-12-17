@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Flex.module.scss'
-import { memo, type ReactNode } from 'react'
+import { type DetailedHTMLProps, type HTMLAttributes, memo, type ReactNode } from 'react'
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end'
@@ -31,7 +31,10 @@ const gapClasses: Record<FlexGap, string> = {
   16: cls.gap16,
   32: cls.gap32
 }
-export interface FlexProps {
+
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+export interface FlexProps extends DivProps {
   className?: string
   justify?: FlexJustify
   align?: FlexAlign
