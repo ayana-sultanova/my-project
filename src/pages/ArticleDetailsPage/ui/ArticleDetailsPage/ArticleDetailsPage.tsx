@@ -23,6 +23,7 @@ import {
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader'
+import { VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -61,6 +62,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                <VStack gap={'16'}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id}/>
                 <Text
@@ -80,6 +82,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                     isLoading={commentIsLoading}
                     comments={comments}
                 />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
   )
